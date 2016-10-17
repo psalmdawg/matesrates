@@ -1,0 +1,23 @@
+<div class="job_container">
+    <div class="job_title">
+      <%=@business.name%>
+    </div>
+
+    <div class="job_description">
+    <%=@business.about%>
+    </div>
+    <div class="job_description">
+    Services offered: <%=@business.services%>
+    </div>
+
+
+
+    Business owner: <%=@user%>
+    <br/>
+    <% if user_signed_in? %>
+      <%= link_to 'Contact', conversations_path(sender_id: current_user.id, recipient_id: @user_id), method: 'post'%>
+    <% else %>
+      <p><a href="../users/sign_in">Log in or Sign up</a>, to contact</p>
+    <% end %>
+
+</div>

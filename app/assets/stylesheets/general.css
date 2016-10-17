@@ -1,0 +1,17 @@
+*{
+	font-family: verdana;
+	/*font-size: 20px;*/
+}
+
+.make_blue{
+	font-weight: bold;
+}
+.make_blue:hover{
+	color:blue;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

@@ -1,0 +1,66 @@
+*, *:before, *:after {
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+#navigation{
+  color:#22262c;
+  font-size: 4vh;
+  font-weight: bold;
+  font-size: 12px;
+  background-color: white;
+  padding:5px;
+  height: 100%;
+}
+
+#inner-nav{
+  margin-top: 20%;
+  clear: both;
+}
+
+#nav-title{
+  font-size: 3vh;
+  color: red;
+  padding-right: 3%;
+}
+
+.signed_in_name {
+  float:right;
+}
+
+.menu-item{
+
+  height: 20vh;
+  padding: 2%;
+  font-size: 4vh;
+  border: 1px solid black;
+  /*text-align:center;*/
+
+}
+
+@media screen and (min-width: 600px) {
+    #navigation {
+        /*background-color: lightgreen;*/
+    }
+  #inner-Nav{
+    display:inline-block;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+
+  }
+  .menu-item{
+    width: 75%;
+    height: 10%;
+    margin: 5px;
+    margin-top: 2%;
+  }
+  .menu-item:hover{
+    box-shadow: 3px 3px;
+    transform:translateX(5px);
+    transition: 0.5s;
+  }
+
+}

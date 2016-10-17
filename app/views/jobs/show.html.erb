@@ -1,0 +1,63 @@
+    <div class="job_container_show">
+      <div class="job_title">
+        <%=@job.title%>
+      </div>
+      <div class="job-inner-container">
+        <div class="job_description">
+          Details: <%=@job.description%>
+        </div>
+        <div class="job_price">
+          Money offered: <%=@job.price%>
+        </div>
+        <div class="job_timeframe">
+          Timeframe: <%= @job.timeframe %>
+        </div>
+        <div class="job-creation-date">
+          <p><%= @job.created_at.strftime("%d/%m/%Y") %></p>
+        </div>
+
+        <div class="job_location">
+          <%=@suburb%><%=@state%>
+        </div>
+        <% if user_signed_in? %>
+        <div class="job_owner_contact">
+          <a href="/messages/new/<%=@user_id%>/<%=@job.id%>"><span class="email_icon">&#x2709;</span> contact <%=@user%></a>
+        </div>
+          <!-- <%= link_to 'Contact', conversations_path(sender_id: current_user.id, recipient_id: @user_id), method: 'post'%> -->
+        <% else %>
+          <p><a href="../users/sign_in">Log in or Sign up</a>, to contact <%=@user%></p>
+        <% end %>
+      </div>
+    </div>
+
+
+
+    <div id="job_map">
+      <div id="map"></div>
+
+    </div>
+
+    <script>
+
+
+
+      function initMap() {
+      var location = new google.maps.LatLng
+      (<%= @job.latitude %>, <%= @job.longitude %>);
+
+        var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+            center: location,
+            zoom:12
+        });
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+
+    </script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgv2nF9cSyCe8iy0UW7YtTiB3FpprBl4c&callback=initMap" async defer>
+    </script>

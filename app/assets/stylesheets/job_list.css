@@ -1,0 +1,83 @@
+.job_container{
+  /*border: white solid 1px;*/
+  margin: 1%;
+  width: 44%;
+  min-height: 100px;
+  display: inline-block;
+  box-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+.job_container_show{
+  /*border: white solid 1px;*/
+  margin: 2%;
+  width: 90%;
+  min-height: 100px;
+  display: inline-block;
+  box-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+.job_container:hover{
+  background-color: white;
+  transition: .3s;
+  transform: translateY(-1px);
+}
+
+.job-inner-container{
+  padding: 5px;
+}
+
+.job_description{
+  font-size: 17px;
+  padding-top: 5px;
+  margin-bottom: 2%;
+}
+
+.job_title{
+  background-color: lightblue;
+  padding: 5px;
+  /*border-radius: 5px;*/
+  /*width:45%;*/
+}
+
+.job_creation_date{
+  font-size: 12px;
+  padding-top: 5px;
+}
+
+.job_timeframe{
+  font-size: 12px;
+  padding-top: 5px;
+}
+.job_owner{
+  font-size: 12px;
+  padding-top: 5px;
+}
+.job_owner_contact{
+  font-size: 15px;
+  padding-top: 5px;
+}
+.job_owner_contact:hover{
+  color:blue;
+}
+
+.job_type{
+  font-size: 12px;
+  padding-top: 5px;
+}
+.job-creation-date{
+  float:right;
+}
+.email_icon{
+  font-size: 30px;
+  vertical-align: sub;
+}
+
+@media screen and (max-width: 600px) {
+  .job_container{
+    /*background-color: pink;*/
+    width: 90%;
+    margin-left: 5%;
+    margin-right:5%;
+    margin-top:2%;
+
+  }
+}

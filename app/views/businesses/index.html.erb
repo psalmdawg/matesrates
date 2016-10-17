@@ -1,0 +1,18 @@
+<div id="nav-title">
+  <a href="/">Mates Rates</a>
+</div>
+<br>
+<% @business.each do |b|%>
+  <a href="/businesses/<%=b.id%>">
+    <div class="business_container">
+      <div class="bus_title">
+        <p><%= b.name %></p>
+      </div>
+      <div class="bus_inner_container">
+        <p><%= b.about %></p>
+      </div>
+    </div>
+  </a>
+<br/>
+<% end %>
+<hr/>

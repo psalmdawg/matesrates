@@ -1,0 +1,53 @@
+
+  <ul>
+    <li class="categories-list">Categories:</li>
+  <% @jobtypes.each do |jt| %>  
+    <a href="/job_types/<%=jt.id%>"><li class="categories-list"><%=jt.name%></li></a>
+  <% end %>
+    <a href="/jobs"><li class="categories-list">All</li></a>
+  </ul>
+  <br/>
+  <hr/>
+  <h2><%=@thisjobtype.name%></h2>
+  <br/>
+  <h4><%=@none%></h4>
+
+  <% @jobs.each do |job| %>
+    <a href="/jobs/<%=job.id%>">
+      <div class="job_container">
+          <div class="job_title">
+             <%=job.title%>
+          </div>
+        <div class="job-inner-container">
+
+          <div class="job_price">
+            Money? <%=job.price%>
+          </div>
+          <div class="job_timeframe">
+            Required:
+           <%= job.timeframe %>
+          </div>
+
+          <div class="job_owner">
+            <%= User.find(job.user_id).first_name%>
+            <span class="job_location">
+
+            <% if job.suburb == nil %>
+              <% @suburb = "" %>
+            <% else %>
+              <% @suburb = job.suburb  %>
+            <% end %>
+            <% if job.state == nil %>
+              <% @state = "" %>
+            <% else %>
+              <% @state = ", " + job.state %>
+            <% end %>
+
+              <%=@suburb%><%=@state%>
+            </span>
+            <span class="job-creation-date"><%= job.created_at.strftime("%d/%m/%Y") %></span>
+          </div>
+      </div>
+    </div>
+    </a>
+  <% end %>

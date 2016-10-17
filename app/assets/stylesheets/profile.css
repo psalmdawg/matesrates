@@ -1,0 +1,42 @@
+.editprofilelink{
+  margin-top: 20px;
+	font-weight: bold;
+	display: inline-block;
+  margin-right: 20px;
+	/*float: left;*/
+}
+.editprofilelink:hover{
+  color:blue;
+}
+#profileheader{
+	display: inline;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.profile-details{
+  color:grey;
+}
+
+#business-listings{
+  font-weight: bold;
+}
+#profile-details-container{
+
+  text-align: justify;;
+  margin-top: 50px;
+  line-height: 30px;
+}
+
+.job-list-title{
+  color:grey;
+}
+.job-list-title:hover{
+  color:blue;
+}
+.business-name{
+  color:grey;
+}
+.business-name:hover{
+  color:blue;
+}

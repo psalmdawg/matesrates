@@ -1,0 +1,17 @@
+.form-control{
+  width: 75%;
+  height: 100px;
+}
+.message_span{
+  display: inline-block;
+  color: red;
+}
+
+/*.email-container{
+  border: black 1px solid;
+}*/
+.media-body{
+  background-color: #fff;
+  padding:1em;
+  border-radius: 5px;
+}

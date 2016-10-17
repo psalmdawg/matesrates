@@ -1,0 +1,33 @@
+new business page
+
+Create a profile for you business and advertise your services on this site, free!
+
+<form action="/businesses" method="post">
+
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <p>
+  <label for="">What is your business called?</label>
+  <input type="text"  name="name">
+  </p>
+  <p>
+  <label for="">Do you have a website?</label>
+  <input type="text"  name="website_url">
+  </p>
+  <p>
+  <label for="">Business Address</label>
+  <input type="text"  name="unit_no" placeholder="Unit No">
+  <input type="text"  name="address_1" placeholder="Line 1">
+  <input type="text"  name="address_2" placeholder="Line 2">
+  <input type="text"  name="suburb" placeholder="Suburb">
+  <input type="number"  name="postcode" placeholder="Postcode">
+  </p>
+  <p>
+  <label for="">Tell us about your business</label>
+  <input type="text"  name="about">
+  </p>
+  <p>
+  <label for="">What services do you offer?</label>
+  <input type="text"  name="services">
+  </p>
+  <button>CREATE</button>
+</form>

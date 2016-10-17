@@ -1,0 +1,32 @@
+<div id="profileheader">My Profile</div>
+<br/>
+<div class="editprofilelink"><%= link_to "Edit your profile...", edit_user_registration_path(current_user) %></div>
+<div class="editprofilelink"><a href="/jobs/new">Post a job you need doing...</a></div>
+<div class="editprofilelink"><a href="/businesses/new">...or advertise your services</a></div>
+<div id="profile-details-container">
+
+  Your details
+  <p class="profile-details"><%= @user.first_name %> <%= @user.last_name %></p>
+  <p class="profile-details"><%= @user.email %></p>
+  <p class="profile-details"><%= @user.telephone %></p>
+  <hr/>
+
+  <h2>Your Jobs being advertised</h2>
+  <br/>
+  <% @jobs.each do |job|%>
+    <a href="/jobs/<%=job.id%>/edit">
+      <div class="job-list-title"><%=job.title%></div>
+    </a>
+  <%end%>
+
+    <br/>
+    <hr/>
+  <div id="business-listings">Your business pages</div>
+  <% @business.each do |b| %>
+  <a href="/businesses/<%=b.id%>/edit">
+    <div class="business-name"><%= b.name %></div>
+  </a>
+  <% end %>
+  <br/>
+  <a href="profile/id"><p>Do you want to Remove your account?</p></a>
+</div>
