@@ -1,14 +1,24 @@
-<div id="nav-title">
-  <a href="/">Mates Rates</a>
-  <span id="profileheader">My Profile</span>
+<div class="navigation">
+  <div id="nav-title">
+    <a href="/">Mates Rates
+      <img src="assets/Paintbrush.png" alt="logo">
+    </a>
+    <span id="profileheader">My Profile</span>
+  </div>
 </div>
-<!-- <div id="profileheader"></div> -->
+<div class="container">
 <br/>
-<div class="editprofilelink"><%= link_to "Edit your profile...", edit_user_registration_path(current_user) %></div>
-<div class="editprofilelink"><a href="/jobs/new">Post a job you need doing...</a></div>
-<div class="editprofilelink"><a href="/businesses/new">...or advertise your services</a></div>
-<div id="profile-details-container">
+<div class="editprofilelink">
+  <%= link_to "Edit your profile...", edit_user_registration_path(current_user) %>
+</div>
+<div class="editprofilelink">
+  <a href="/jobs/new">Post a job you need doing...</a>
+</div>
+<div class="editprofilelink">
+  <a href="/businesses/new">...or advertise your services</a>
+</div>
 
+<div id="profile-details-container">
   <hr>
   Your details
 
@@ -36,3 +46,4 @@
   <br/>
   <a href="profile/id"><p>Do you want to Remove your account?</p></a>
 </div>
+</div> <!--container-->

@@ -4,7 +4,7 @@
 box-sizing: border-box;
 }
 
-#navigation{
+.navigation{
   color:#22262c;
   font-size: 4vh;
   font-weight: bold;
@@ -23,6 +23,7 @@ box-sizing: border-box;
   font-size: 3vh;
   color: red;
   padding-right: 3%;
+  font-weight: bolder;
 }
 
 .signed_in_name {
@@ -30,19 +31,28 @@ box-sizing: border-box;
 }
 
 .menu-item{
-
   height: 20vh;
   padding: 2%;
   font-size: 4vh;
   border: 1px solid black;
+  margin: 0 auto;
+  margin-top: 2%;
   /*text-align:center;*/
-
 }
-
+.welcome_message{
+  margin-top: 2%;
+}
+.navigation img{
+  /*max-width: 10%;*/
+  display:none;
+}
 @media screen and (min-width: 600px) {
-    #navigation {
-        /*background-color: lightgreen;*/
-    }
+  .navigation img{
+    max-width: 10%;
+    margin-top: 5px;
+    display: inline-block;
+  }
+
   #inner-Nav{
     display:inline-block;
     width: 90%;
@@ -55,12 +65,21 @@ box-sizing: border-box;
     width: 75%;
     height: 10%;
     margin: 5px;
+    margin: 0 auto;
     margin-top: 2%;
   }
   .menu-item:hover{
     box-shadow: 3px 3px;
-    transform:translateX(5px);
-    transition: 0.5s;
+    transform:translateX(-1px);
+    transition: 0.3s;
+  }
+  .welcome_message{
+    width: 75%;
+    height: 10%;
+    margin: 5px;
+    margin: 0 auto;
+    margin-top: 2%;
+    font-size: 1.5em;
   }
 
 }

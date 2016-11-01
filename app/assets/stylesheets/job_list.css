@@ -1,24 +1,30 @@
 .job_container{
-  /*border: white solid 1px;*/
   margin: 1%;
-  width: 44%;
-  min-height: 100px;
+  width: 47%;
+  /*min-height: 100px;*/
   display: inline-block;
-  box-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  border: 0.5px #e8e8ee solid;
+  background-color: #fffbff;
+  border-radius:3px;
+  /*border-radius: 30px;*/
+  /*box-shadow: 2px 4px 3px rgba(0,0,0,0.3);*/
 }
+
 .job_container_show{
-  /*border: white solid 1px;*/
   margin: 2%;
   width: 90%;
   min-height: 100px;
   display: inline-block;
-  box-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  background-color: #e8e8ee;
+  border: 0.5px #e8e8ee solid;
+  border-radius:3px;
+  /*box-shadow: 2px 4px 3px rgba(0,0,0,0.3);*/
 }
 
 .job_container:hover{
   background-color: white;
-  transition: .3s;
-  transform: translateY(-1px);
+  box-shadow: 3px 3px rgba(0,0,0,0.3);
+  border: none;
 }
 
 .job-inner-container{
@@ -34,8 +40,9 @@
 .job_title{
   background-color: lightblue;
   padding: 5px;
-  /*border-radius: 5px;*/
-  /*width:45%;*/
+  font-weight: bold;
+  border: 0.5px #e8e8ee solid;
+  border-radius:3px;
 }
 
 .job_creation_date{
@@ -58,7 +65,6 @@
 .job_owner_contact:hover{
   color:blue;
 }
-
 .job_type{
   font-size: 12px;
   padding-top: 5px;
@@ -70,7 +76,69 @@
   font-size: 30px;
   vertical-align: sub;
 }
+.categories-list{
+  display: inline-block;
+}
+.categories-list{
+  text-align: center;
+  margin-left: 1%;
+}
+.alljobtitle{
+  clear:both;
+  font-weight: bold;
+  padding:1%inherit;
+  margin-bottom:1%;
+}
+/*.categories-list a:hover{
+  color: blue;
+}*/
+.job-srch-frm{
+  clear: both;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 1%;
+  display: block;
+}
+.job-srch-frm button{
+  border-radius: 5px;
+  background: skyblue;
+  border: none;
+  margin-left: 1%;
+  margin-top: 1%;
+}
+.job-srch-frm input{
+  min-width: 70%;
+}
 
+.job_categories{
+  margin-bottom: 1%;
+  margin-top: 2%;
+  background-color: #d3d3d3;
+  border-radius: 5px;
+  width: 100%;
+  padding: 1%;
+  text-align: center;
+}
+
+.search_info{
+  width: 70%;
+  margin-top: 2%;
+  margin: 0 auto;
+  display: block;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+}
+.search_info img{
+  max-width: 10%;
+}
+.up_arrow{
+  transform: rotate(180deg);
+  margin-bottom: 2%;
+}
+.down_arrow{
+  margin-top: 2%;
+}
 @media screen and (max-width: 600px) {
   .job_container{
     /*background-color: pink;*/

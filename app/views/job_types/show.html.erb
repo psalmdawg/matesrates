@@ -1,25 +1,40 @@
-
-  <ul>
-    <li class="categories-list">Categories:</li>
-  <% @jobtypes.each do |jt| %>  
-    <a href="/job_types/<%=jt.id%>"><li class="categories-list"><%=jt.name%></li></a>
-  <% end %>
-    <a href="/jobs"><li class="categories-list">All</li></a>
-  </ul>
-  <br/>
+<div class="navigation">
+  <div id="nav-title">
+    <a href="/">Mates Rates
+        <img src="assets/Paintbrush.png" alt="logo">
+    </a>
+    <% if user_signed_in? %>
+      <a class="signed_in_name" href="/profile">Hello <%=current_user.first_name %>!</a>
+    <%else%>
+      <a class="signed_in_name"href="/users/sign_in">Login/Sign up</a>
+    <% end %>
+  </div>
+  <div class="job_categories">
+    <ul>
+      <li class="categories-list">Categories:</li>
+    <% @jobtypes.each do |jt| %>
+      <a href="/job_types/<%=jt.id%>"><li class="categories-list"><%=jt.name%></li></a>
+    <% end %>
+      <a href="/jobs"><li class="categories-list">All</li></a>
+    </ul>
+  </div>
+</div>
+<div class="container">
   <hr/>
-  <h2><%=@thisjobtype.name%></h2>
+  <p class="alljobtitle"><%=@thisjobtype.name%></p>
   <br/>
+
   <h4><%=@none%></h4>
 
   <% @jobs.each do |job| %>
     <a href="/jobs/<%=job.id%>">
       <div class="job_container">
-          <div class="job_title">
-             <%=job.title%>
-          </div>
-        <div class="job-inner-container">
 
+        <div class="job_title">
+           <%=job.title%>
+        </div>
+
+        <div class="job-inner-container">
           <div class="job_price">
             Money? <%=job.price%>
           </div>
@@ -47,7 +62,8 @@
             </span>
             <span class="job-creation-date"><%= job.created_at.strftime("%d/%m/%Y") %></span>
           </div>
+        </div>
       </div>
-    </div>
     </a>
   <% end %>
+  </div> <!-- container -->

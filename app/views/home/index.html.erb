@@ -1,36 +1,60 @@
-<div id="navigation">
+<div class="navigation">
   <div id="top-nav">
     <div id="nav-title">
-      <a href="/">Mates Rates</a>
+      <a href="/">Mates Rates
+        <img src="assets/Paintbrush.png" alt="logo">
+      </a>
         <% if user_signed_in? %>
-        <a class="signed_in_name" href="/profile">Hello <%=current_user.first_name %>!</a>
-      <%else%>
-      <a class="signed_in_name"href="/users/sign_in">Login/Sign up</a>
+          <a class="signed_in_name" href="/profile">Hello <%=current_user.first_name %>!</a>
+        <%else%>
+          <a class="signed_in_name"href="/users/sign_in">Login/Sign up</a>
+        <% end %>
     </div>
-    <% end %>
+
   </div> <!--top nav -->
+
   <div id="inner-Nav">
-    <div class="menu-item">
-      <a href="/about">Welcome to Mates Rates!</a>
+
+    <div class="welcome_message">
+      Welcome to MatesRates
     </div>
-    <div class="menu-item">
-      <a href="/jobs">Find a Job!</a>
-    </div>
-    <div class="menu-item">
-      <a href="/businesses">Find a Worker</a>
-    </div>
+
+    <a href="/about">
+      <div class="menu-item">
+        About
+      </div>
+    </a>
+
+    <a href="/jobs">
+      <div class="menu-item">
+        Find a Job!
+      </div>
+    </a>
+
+    <a href="/businesses">
+      <div class="menu-item">
+        Find a Worker
+      </div>
+    </a>
+
     <% if user_signed_in? %>
-    <div class="menu-item">
-      <a href="/conversations">Your Inbox</a>
-    </div>
-    <div class="menu-item">
-      <a href="/profile"> Profile</a>
-    </div>
+
+    <a href="/conversations">
+      <div class="menu-item">
+        Your Inbox
+      </div>
+    </a>
+
+    <a href="/profile">
+      <div class="menu-item">
+        Profile
+      </div>
+    </a>
     <% end %>
 
     <% if user_signed_in? %>
     <div class="menu-item">
-      <%= link_to('Logout?', destroy_user_session_path, :method =>:delete) %>
+      <%= link_to('Logout', destroy_user_session_path, :method =>:delete) %>
       <% end %>
     </div>
     <!-- <span class="notice"><%= notice %></span>

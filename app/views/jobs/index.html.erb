@@ -1,97 +1,110 @@
-<div id="nav-title">
-  <a href="/">Mates Rates</a>
+<div class="navigation">
+  <div id="nav-title">
+    <a href="/">Mates Rates <img src="assets/Paintbrush.png" alt="logo"></a>
+    <% if user_signed_in? %>
+      <a class="signed_in_name" href="/profile">Hello <%=current_user.first_name %>!</a>
+    <%else%>
+      <a class="signed_in_name"href="/users/sign_in">Login/Sign up</a>
+    <% end %>
+  </div>
+    <div class="job_categories">
+      <ul>
+        <li class="categories-list">Categories:</li>
+      <% @jobtypes.each do |jt| %>
+        <a href="/job_types/<%=jt.id%>"><li class="categories-list"><%=jt.name%></li></a>
+      <% end %>
+        <a href="/jobs"><li class="categories-list">All</li></a>
+      </ul>
+    </div>
 </div>
-  <ul>
-    <li class="categories-list">Categories:</li>
-  <% @jobtypes.each do |jt| %>
-    <a href="/job_types/<%=jt.id%>"><li class="categories-list"><%=jt.name%></li></a>
+<div class="container">
+    <div class="search_info">
+      <img src="assets/DownArrow.png" alt="" class="up_arrow">
+        Search by category, or search by Location!
+      <img src="assets/DownArrow.png" alt="" class="down_arrow">
+    </div>
+    <form class="job-srch-frm" action="/jobs">
+
+        <input id="autocomplete" placeholder="Search by location..."
+        name="location" onFocus="geolocate()" type="text">
+
+      <label for="proximity">Distance</label>
+        <select class=""required name="proximity">
+          <option value="">Please select</option>
+          <option value="10">10km</option>
+          <option value="25">25km</option>
+          <option value="50">50km</option>
+          <option value="100">100km</option>
+          <option value="250">250km</option>
+          <option value="1000">1000km</option>
+        </select>
+      <button>update</button>
+    </form>
+
+
+  <hr/>
+
+  <p class="alljobtitle">All Jobs</p>
+  <h3><%=@noJobs%></h3>
+  <% if @jobs == nil %>
+  <% else %>
+    <% @jobs.each do |job| %>
+      <a class="job-link" href="/jobs/<%=job.id%>">
+        <div class="job_container">
+          <div class="job_title">
+             <%=job.title%>
+          </div>
+          <div class="job-inner-container">
+
+            <div class="job_price">
+              Money? <%=job.price%>
+            </div>
+            <div class="job_timeframe">
+              Required:
+             <%= job.timeframe %>
+            </div>
+
+            <div class="job_owner">
+              <%= User.find(job.user_id).first_name%>,
+              <span class="job_location">
+
+              <% if job.suburb == nil %>
+                <% @suburb = "" %>
+              <% else %>
+                <% @suburb = job.suburb %>
+              <% end %>
+              <% if job.state == nil %>
+                <% @state = "" %>
+              <% else %>
+                <% @state =  ", " + job.state %>
+              <% end %>
+                <%=@suburb%><%=@state%>
+              </span>
+              <span class="job-creation-date"><%= job.created_at.strftime("%d/%m/%Y") %></span>
+            </div>
+          </div>
+        </div>
+      </a>
+    <% end %>
   <% end %>
-    <a href="/jobs"><li class="categories-list">All</li></a>
-  </ul>
+
+  <hr/>
+
 
   <br/>
-  <form action="/jobs">
-    <!-- <div id="locationField"> -->
-      <!-- <label for="autocomplete">Search by location</label> -->
-      <input id="autocomplete" placeholder="Search by location..."
-      name="location" onFocus="geolocate()" type="text">
-    <!-- </div> -->
-    <label for="proximity">Distance</label>
-      <select class=""required name="proximity">
-        <option value="">Please select</option>
-        <option value="10">10km</option>
-        <option value="25">25km</option>
-        <option value="50">50km</option>
-        <option value="100">100km</option>
-        <option value="250">250km</option>
-        <option value="1000">1000km</option>
-      </select>
-    <button>update</button>
+  <div id="address">
+    <input class="field" type="hidden" id="street_number" name="street_number" placeholder="Street number"></input>
+    <input class="field" type="hidden" id="route" name = "street" placeholder="Street"></input>
+    <input class="field" type="hidden"id="locality" name = "suburb" placeholder="Suburb"></input>
+    <input class="field" type="hidden"id="administrative_area_level_1" name="state" placeholder="State"></input>
+    <input class="field" type="hidden"id="postal_code" name="postcode" placeholder="Postcode"></input>
+    <input class="field" type="hidden"id="country" name="country" placeholder="Country"></input>
+  </div>
+  <br/>
+  <!-- <button>CREATE</button> -->
+
   </form>
-
-<br/>
-<hr/>
-
-<p id="alljobtitle">All Jobs</p>
-<h3><%=@noJobs%></h3>
-<% if @jobs == nil %>
-<% else %>
-  <% @jobs.each do |job| %>
-    <a class="job-link" href="/jobs/<%=job.id%>">
-      <div class="job_container">
-        <div class="job_title">
-           <%=job.title%>
-        </div>
-        <div class="job-inner-container">
-
-          <div class="job_price">
-            Money? <%=job.price%>
-          </div>
-          <div class="job_timeframe">
-            Required:
-           <%= job.timeframe %>
-          </div>
-
-          <div class="job_owner">
-            <%= User.find(job.user_id).first_name%>,
-            <span class="job_location">
-
-            <% if job.suburb == nil %>
-              <% @suburb = "" %>
-            <% else %>
-              <% @suburb = job.suburb %>
-            <% end %>
-            <% if job.state == nil %>
-              <% @state = "" %>
-            <% else %>
-              <% @state =  ", " + job.state %>
-            <% end %>
-              <%=@suburb%><%=@state%>
-            </span>
-            <span class="job-creation-date"><%= job.created_at.strftime("%d/%m/%Y") %></span>
-          </div>
-        </div>
-      </div>
-    </a>
-  <% end %>
-<% end %>
-
-<hr/>
-
-
-<br/>
-<div id="address">
-  <input class="field" type="hidden" id="street_number" name="street_number" placeholder="Street number"></input>
-  <input class="field" type="hidden" id="route" name = "street" placeholder="Street"></input>
-  <input class="field" type="hidden"id="locality" name = "suburb" placeholder="Suburb"></input>
-  <input class="field" type="hidden"id="administrative_area_level_1" name="state" placeholder="State"></input>
-  <input class="field" type="hidden"id="postal_code" name="postcode" placeholder="Postcode"></input>
-  <input class="field" type="hidden"id="country" name="country" placeholder="Country"></input>
-</div>
-<br/>
-<!-- <button>CREATE</button> -->
-
-</form>
+</div> <!-- container -->
 <script>
 
   var placeSearch, autocomplete;

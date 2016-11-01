@@ -1,6 +1,15 @@
-<div id="nav-title">
-  <a href="/">Mates Rates</a>
-</div>
+<div class="navigation">
+  <div id="nav-title">
+    <a href="/">Mates Rates
+      <img src="assets/Paintbrush.png" alt="logo">
+    </a>
+    <% if user_signed_in? %>
+      <a class="signed_in_name" href="/profile">Hello <%=current_user.first_name %>!</a>
+    <%else%>
+      <a class="signed_in_name"href="/users/sign_in">Login/Sign up</a>
+    <% end %>
+  </div>
+</div><!--Navigation -->
 <div id="about-main">
   <p>Mates rates is a website where you can find <a class="about-link"href="/jobs">odd jobs</a> that need doing in your area, or advertise <a class="about-link" href="/workers">your services</a> to people local to you!</p>
   <a class="about-link" href="/jobs">Browse Jobs</a> or
