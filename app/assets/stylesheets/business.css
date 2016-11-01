@@ -1,6 +1,7 @@
 .business_container {
   margin: 1%;
-  width: 44%;
+  margin-top: 10px;
+  width: 95%;
   min-height: 100px;
   display: inline-block;
   box-shadow: 2px 4px 3px rgba(0,0,0,0.3);
@@ -19,3 +20,7 @@
 .bus_inner_container{
   padding: 1%;
 }
+
+
+
+/*andrewm@finite.com.au*/

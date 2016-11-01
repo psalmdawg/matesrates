@@ -1,11 +1,17 @@
-<div id="profileheader">My Profile</div>
+<div id="nav-title">
+  <a href="/">Mates Rates</a>
+  <span id="profileheader">My Profile</span>
+</div>
+<!-- <div id="profileheader"></div> -->
 <br/>
 <div class="editprofilelink"><%= link_to "Edit your profile...", edit_user_registration_path(current_user) %></div>
 <div class="editprofilelink"><a href="/jobs/new">Post a job you need doing...</a></div>
 <div class="editprofilelink"><a href="/businesses/new">...or advertise your services</a></div>
 <div id="profile-details-container">
 
+  <hr>
   Your details
+
   <p class="profile-details"><%= @user.first_name %> <%= @user.last_name %></p>
   <p class="profile-details"><%= @user.email %></p>
   <p class="profile-details"><%= @user.telephone %></p>

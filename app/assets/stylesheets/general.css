@@ -15,3 +15,12 @@
   display: table;
   clear: both;
 }
+
+/*responsive sizing*/
+
+@media screen and (max-width: 600px) {
+
+	.inner-site-wrap{
+		padding: 2%;
+	}
+}
